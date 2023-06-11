@@ -1,0 +1,17 @@
+td, th {
+  border: 2px $dark-grey solid;
+  padding: 16px;
+}
+
+table {
+  width: 100%;
+}
+
+.table-box {
+  background-color: $light-grey;
+  border-radius: 25px;
+  padding: 40px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.7);
+
+}
+// box-shadow: none|h-offset v-offset blur spread color |inset|initial|inherit;

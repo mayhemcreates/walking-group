@@ -1,0 +1,11 @@
+<nav class="container">
+  <div class="row mb-5 nav">
+    <div class="d-flex justify-content-end align-items-center">
+<% if current_user %>
+    <%= link_to 'logout', logout_path, :data => { :confirm => 'Are you sure?' }%>
+<% else %>
+    <%= link_to 'login', login_path%>
+<% end %>
+    </div>
+  </div>
+</nav>

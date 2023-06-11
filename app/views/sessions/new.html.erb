@@ -1,0 +1,16 @@
+
+  <div class="row pt-5 pb-5">
+    <div class=" offset-2 col-8 table-box">
+      <div class="row">
+        <div class="d-flex justify-content-center my-3">
+
+
+<%= form_for(:session, url: login_path) do |f| %>
+  <%= f.email_field :email, :placeholder => "Email" %>
+  <%= f.password_field :password, :placeholder => "Password" %>
+  <%= f.submit "Log in", class: "btn-submit" %>
+<% end %>
+        </div>
+      </div>
+    </div>
+</div>

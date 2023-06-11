@@ -1,0 +1,21 @@
+.button-light {
+  background-color: $light-grey;
+  color: $dark-grey;
+  border: 4px $grey solid;
+  ;
+}
+
+button {
+  width: 146px;
+  border-radius: 8px;
+  min-height: 48px;
+
+  a {
+    color: $dark-grey;
+    text-decoration: none;
+  }
+
+  &:hover {
+    border: 2px $dark-grey solid;
+  }
+}

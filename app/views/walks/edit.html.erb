@@ -1,0 +1,15 @@
+<div class="container ">
+  <div class="row pt-5 pb-5">
+    <div class=" offset-2 col-8 table-box">
+
+  <h1 class="mb-4">Edit your walk</h1>
+    <%= "You are updating the walk on #{@walk.date.strftime('%d %b %Y')}" %>
+    <div class="mb-4"></div>
+  <%= simple_form_for @walk do |f| %>
+    <%= f.input :venue, placeholder: "Enter your walk venue"%>
+    <%= f.input :leader %>
+    <%= f.submit class: "main-btn my-4 " %>
+  <% end %>
+</div>
+</div>
+</div>

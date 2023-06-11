@@ -1,0 +1,55 @@
+<%= render "partials/banner" %>
+
+<div class="container ">
+  <div class="row pt-5 pb-5">
+    <div class=" offset-2 col-8 table-box">
+      <div class="row">
+    <div class="d-flex justify-content-center my-3">
+        <h1>Walking Group Schedule</h1>
+    </div>
+  </div>
+      <table>
+        <th>
+        Date
+        </th>
+        <th>
+        Venue
+        </th>
+        <th>
+        Leader
+        </th>
+        <% if current_user %>
+        <th>
+        Edit
+        </th>
+        <% end %>
+          <% @walks.each do |walk| %>
+        <tr>
+          <td>
+            <p><%= walk.date.strftime('%d %b %Y') %></p>
+          </td>
+          <td>
+            <p><%= walk.venue%></p>
+          </td>
+          <td>
+            <p><%= walk.leader  %></p>
+          </td>
+          <% if current_user%>
+          <td>
+                <div class="edit-delete-list d-flex">
+          <div class="edit-list px-2">
+            <div class="icon-btn">
+              <%= link_to edit_walk_path(walk) do %>
+            <i class="fa-solid fa-pencil edit-icon"></i>
+                <% end %>
+          </div>
+          </div>
+          </td>
+                      <% end %>
+
+        </tr>
+            <% end %>
+      </table>
+    </div>
+  </div>
+</div>
