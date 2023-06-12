@@ -1,6 +1,6 @@
 class WalksController < ApplicationController
   def index
-    @walks = Walk.all.order(date: :asc)
+    @walks = Walk.all.order(day: :asc)
   end
 
   def show
