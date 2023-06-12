@@ -2,10 +2,11 @@
 
 <div class="container ">
   <div class="row pt-5 pb-5">
-    <div class=" offset-2 col-8 table-box">
+    <div class="offset-md-2 col-12 col-md-8 table-box">
       <div class="row">
-    <div class="d-flex justify-content-center my-3">
-        <h1>Walking Group Schedule</h1>
+    <div class="d-flex flex-column align-items-center my-3">
+        <h1 class="text-center">Walking Group Schedule</h1>
+        <p class="mx-5 my-3">To add or edit a walk, click the pencil icon in the edit column next to the date you would like to edit.</p>
     </div>
   </div>
       <table>
@@ -18,11 +19,9 @@
         <th>
         Leader
         </th>
-        <% if current_user %>
         <th>
         Edit
         </th>
-        <% end %>
           <% @walks.each do |walk| %>
         <tr>
           <td>
@@ -34,7 +33,6 @@
           <td>
             <p><%= walk.leader  %></p>
           </td>
-          <% if current_user%>
           <td>
                 <div class="edit-delete-list d-flex">
           <div class="edit-list px-2">
@@ -45,7 +43,6 @@
           </div>
           </div>
           </td>
-                      <% end %>
 
         </tr>
             <% end %>

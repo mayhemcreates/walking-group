@@ -13,11 +13,11 @@ puts "seeding database with walk dates"
 Walk.destroy_all
 User.destroy_all
 
-10.times do
-  User.create!(email: "simonjmayhew3@gmail.com", password: 'kentra123')
-end
+ActiveRecord::Base.connection.reset_pk_sequence!(User.table_name)
 
-Walk.create!(day: '22-5-2023', location: '', leader: '')
+User.create!(email: "simonjmayhew3@gmail.com", password: 'kentra123')
+
+Walk.create!(day: '22-6-2023', location: '', leader: '')
 
 def calculate_next_thursday(date)
   new_date = date + 6

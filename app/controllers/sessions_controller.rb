@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       redirect_to '/walks'
     else
       redirect_to '/login'
+      flash[:alert] = 'Incorrect login, try again'
     end
   end
 

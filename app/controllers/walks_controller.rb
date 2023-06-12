@@ -1,4 +1,6 @@
 class WalksController < ApplicationController
+  before_action :require_user, only: [:index, :show]
+
   def index
     @walks = Walk.all.order(day: :asc)
   end
