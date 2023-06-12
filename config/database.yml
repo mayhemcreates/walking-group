@@ -1,5 +1,8 @@
 # PostgreSQL. Versions 8.2 and up are supported.
-#
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
 # Install the pg driver:
 #   gem install pg
 # On OS X with Homebrew:
@@ -46,5 +49,12 @@ test:
   adapter: postgresql
   encoding: unicode
   database: myapp_test
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: myapp_production
   pool: 5
   timeout: 5000
