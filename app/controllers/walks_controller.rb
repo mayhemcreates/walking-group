@@ -34,7 +34,7 @@ class WalksController < ApplicationController
   private
 
   def walk_params
-    params.require(:walk).permit(:venue, :leader)
+    params.require(:walk).permit(:location, :leader)
   end
 
 end

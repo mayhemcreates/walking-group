@@ -17,7 +17,7 @@ User.destroy_all
   User.create!(email: "simonjmayhew3@gmail.com", password: 'kentra123')
 end
 
-Walk.create!(date: '22-5-2023', venue: '', leader: '', user_id: User.last.id)
+Walk.create!(day: '22-5-2023', location: '', leader: '')
 
 def calculate_next_thursday(date)
   new_date = date + 6
@@ -27,7 +27,7 @@ end
 walk_dates = []
 
 while walk_dates.length <= 20
-  walk = Walk.create!(date: calculate_next_thursday(Walk.last.date), venue: '', leader: '', user_id: 14)
+  walk = Walk.create!(day: calculate_next_thursday(Walk.last.day), location: '', leader: '')
   walk_dates << walk
 end
 

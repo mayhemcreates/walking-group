@@ -13,7 +13,7 @@
         Date
         </th>
         <th>
-        Venue
+        Location
         </th>
         <th>
         Leader
@@ -26,10 +26,10 @@
           <% @walks.each do |walk| %>
         <tr>
           <td>
-            <p><%= walk.date.strftime('%d %b %Y') %></p>
+            <p><%= walk.day.strftime('%d %b %Y') %></p>
           </td>
           <td>
-            <p><%= walk.venue%></p>
+            <p><%= walk.location%></p>
           </td>
           <td>
             <p><%= walk.leader  %></p>
