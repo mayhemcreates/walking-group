@@ -1,8 +1,14 @@
+require 'date'
+
 class WalksController < ApplicationController
   before_action :require_user, only: [:index, :show]
 
   def index
-    @walks = Walk.all.order(day: :asc)
+    Walk.all.each do |walk|
+      if walk.day >= Date.today
+        @walks = Walk.all.order(day: :asc)
+      end
+    end
   end
 
   def show
