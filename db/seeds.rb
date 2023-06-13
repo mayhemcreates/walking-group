@@ -15,7 +15,7 @@ User.destroy_all
 
 ActiveRecord::Base.connection.reset_pk_sequence!(User.table_name)
 
-User.create!(email: "simonjmayhew3@gmail.com", password: 'kentra123')
+User.create!(username:"walkers", password: 'ashford')
 
 Walk.create!(day: '22-6-2023', location: '', leader: '')
 
