@@ -17,7 +17,11 @@ table {
 // box-shadow: none|h-offset v-offset blur spread color |inset|initial|inherit;
 @media only screen and (max-width: 600px) {
   .table-box {
-  padding: 16px;
+  padding: 6px;
   background-color: $light-grey-transparency;
+  }
+
+  td {
+    padding: 2px 15px;
   }
 }
