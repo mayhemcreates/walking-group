@@ -23,6 +23,7 @@
         Edit
         </th>
           <% @walks.each do |walk| %>
+            <% if walk.visible == true %>
         <tr>
           <td>
             <p><%= walk.day.strftime('%d %b %Y') %></p>
@@ -45,6 +46,7 @@
           </td>
 
         </tr>
+            <% end %>
             <% end %>
       </table>
     </div>

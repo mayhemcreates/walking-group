@@ -1,13 +1,17 @@
-require 'date'
-
 class WalksController < ApplicationController
   before_action :require_user, only: [:index, :show]
 
   def index
-    Walk.all.each do |walk|
-      if walk.day >= Date.today
-        @walks = Walk.all.order(day: :asc)
+    @walks = Walk.all.order(day: :asc)
+    @walks.each do |walk|
+      if walk.day.before?(Date.today)
+        walk.visible = false
+        walk.save
       end
+    end
+    visible_walks = Walk.where(visible: true)
+    if visible_walks.count <=12
+      Walk.create!(day: calculate_next_thursday(Walk.last.day), location: '', leader: '', visible: true)
     end
   end
 
@@ -43,6 +47,11 @@ class WalksController < ApplicationController
 
   def walk_params
     params.require(:walk).permit(:location, :leader)
+  end
+
+  def calculate_next_thursday(date)
+    new_date = date + 6
+    new_date.next_occurring(:thursday)
   end
 
 end

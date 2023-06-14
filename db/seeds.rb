@@ -14,10 +14,14 @@ Walk.destroy_all
 User.destroy_all
 
 ActiveRecord::Base.connection.reset_pk_sequence!(User.table_name)
+ActiveRecord::Base.connection.reset_pk_sequence!(Walk.table_name)
+
 
 User.create!(username:"walkers", password: 'ashford')
 
-Walk.create!(day: '22-6-2023', location: '', leader: '')
+Walk.create!(day: '15-6-2023', location: '', leader: '', visible: true)
+
+puts "#{Walk.first}"
 
 def calculate_next_thursday(date)
   new_date = date + 6
@@ -26,8 +30,8 @@ end
 
 walk_dates = []
 
-while walk_dates.length <= 20
-  walk = Walk.create!(day: calculate_next_thursday(Walk.last.day), location: '', leader: '')
+while walk_dates.length <= 12
+  walk = Walk.create!(day: calculate_next_thursday(Walk.last.day), location: '', leader: '', visible: true)
   walk_dates << walk
 end
 
