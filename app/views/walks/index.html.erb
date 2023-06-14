@@ -4,11 +4,11 @@
   <div class="row pt-5 pb-5">
     <div class="offset-md-2 col-12 col-md-8 table-box">
       <div class="row">
-    <div class="d-flex flex-column align-items-center my-3">
-        <h1 class="text-center">Walking Group Schedule</h1>
-        <p class="mx-5 my-3">To add or edit a walk, click the pencil icon in the edit column next to the date you would like to edit.</p>
-    </div>
-  </div>
+        <div class="d-flex flex-column align-items-center my-3">
+          <h1 class="text-center">Walking Group Schedule</h1>
+          <p class="mx-5 my-3">To add or edit a walk, click the pencil icon in the edit column next to the date you would like to edit.</p>
+        </div>
+      </div>
       <table>
         <th>
         Date
@@ -22,32 +22,32 @@
         <th>
         Edit
         </th>
-          <% @walks.each do |walk| %>
-            <% if walk.visible == true %>
-        <tr>
-          <td>
-            <p><%= walk.day.strftime('%d %b %Y') %></p>
-          </td>
-          <td>
-            <p><%= walk.location%></p>
-          </td>
-          <td>
-            <p><%= walk.leader  %></p>
-          </td>
-          <td>
-                <div class="edit-delete-list d-flex">
-          <div class="edit-list px-2">
-            <div class="icon-btn">
-              <%= link_to edit_walk_path(walk) do %>
-            <i class="fa-solid fa-pencil edit-icon"></i>
-                <% end %>
-          </div>
-          </div>
-          </td>
-
-        </tr>
-            <% end %>
-            <% end %>
+        <% @walks.each do |walk| %>
+          <% if walk.visible == true %>
+          <tr>
+            <td>
+              <p><%= walk.day.strftime('%d %b %Y') %></p>
+            </td>
+            <td>
+              <p><%= walk.location%></p>
+            </td>
+            <td>
+              <p><%= walk.leader  %></p>
+            </td>
+            <td>
+              <div class="edit-delete-list d-flex">
+                <div class="edit-list px-2">
+                  <div class="icon-btn">
+                    <%= link_to edit_walk_path(walk) do %>
+                      <i class="fa-solid fa-pencil edit-icon"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <% end %>
+        <% end %>
       </table>
     </div>
   </div>

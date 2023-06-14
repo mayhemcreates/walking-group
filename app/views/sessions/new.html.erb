@@ -1,16 +1,16 @@
 
-  <div class="row pt-5 pb-5">
-    <div class="d-flex flex-column offset-2 col-8 table-box align-items-center">
-        <h1>Walking Group Schedule</h1>
-        <p class="my-3">Log in below to view or add to the schedule</p>
-      <div class="row">
-        <div class="d-flex my-3">
-          <%= form_for(:session, url: login_path) do |f| %>
-            <%= f.text_field :username, :placeholder => "Username", class: 'form-field' %>
-            <%= f.password_field :password, :placeholder => "Password", class: 'form-field' %>
-            <%= f.submit "Log in", class: "btn-submit" %>
-          <% end %>
-        </div>
+<div class="row pt-5 pb-5">
+  <div class="d-flex flex-column offset-2 col-8 table-box align-items-center">
+    <h1>Walking Group Schedule</h1>
+    <p class="my-3">Log in below to view or add to the schedule</p>
+    <div class="row">
+      <div class="d-flex my-3">
+        <%= form_for(:session, url: login_path) do |f| %>
+          <%= f.text_field :username, :placeholder => "Username", class: 'form-field' %>
+          <%= f.password_field :password, :placeholder => "Password", class: 'form-field' %>
+          <%= f.submit "Log in", class: "btn-submit" %>
+        <% end %>
       </div>
     </div>
+  </div>
 </div>
