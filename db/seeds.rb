@@ -19,7 +19,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!(Walk.table_name)
 
 User.create!(username:"walkers", password: 'ashford')
 
-Walk.create!(day: '15-6-2023', location: '', leader: '', visible: true)
+Walk.create!(day: '15-3-2024', location: '', leader: '', visible: true, postcode: "TN24 8LD")
 
 puts "#{Walk.first}"
 
@@ -31,7 +31,7 @@ end
 walk_dates = []
 
 while walk_dates.length <= 12
-  walk = Walk.create!(day: calculate_next_thursday(Walk.last.day), location: '', leader: '', visible: true)
+  walk = Walk.create!(day: calculate_next_thursday(Walk.last.day), location: '', leader: '', visible: true, postcode: "TN24 8LD")
   walk_dates << walk
 end
 
