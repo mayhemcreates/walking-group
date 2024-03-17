@@ -1,11 +1,6 @@
 require 'date'
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+require 'dotenv/load'
+
 puts "Cleaning database..."
 
 puts "seeding database with walk dates"
@@ -16,10 +11,12 @@ User.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!(User.table_name)
 ActiveRecord::Base.connection.reset_pk_sequence!(Walk.table_name)
 
+seed_password = ENV['GROUP_PASSWORD']
 
-User.create!(username:"walkers", password: 'ashford')
 
-Walk.create!(day: '15-3-2024', location: '', leader: '', visible: true, postcode: "TN24 8LD")
+User.create!(username:"walkers", password: seed_password)
+
+Walk.create!(day: '15-6-2023', location: '', leader: '', visible: true, postcode: "", notes: "", contact: "")
 
 puts "#{Walk.first}"
 
@@ -31,7 +28,7 @@ end
 walk_dates = []
 
 while walk_dates.length <= 12
-  walk = Walk.create!(day: calculate_next_thursday(Walk.last.day), location: '', leader: '', visible: true, postcode: "TN24 8LD")
+  walk = Walk.create!(day: calculate_next_thursday(Walk.last.day), location: '', leader: '', visible: true, postcode: "", notes: "", contact: "")
   walk_dates << walk
 end
 
