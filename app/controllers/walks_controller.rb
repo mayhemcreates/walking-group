@@ -48,7 +48,7 @@ class WalksController < ApplicationController
   private
 
   def walk_params
-    params.require(:walk).permit(:location, :leader, :notes, :postcode)
+    params.require(:walk).permit(:location, :leader, :notes, :postcode, :contact)
   end
 
   def calculate_next_thursday(date)
