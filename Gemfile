@@ -50,6 +50,8 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form"
 gem "importmap-rails"
 gem "geocoder"
+gem "bootstrap", "~> 5.2"
+
 
 
 # [Simple Form] Simple Form is not configured in the application and will use the default values. Use `rails generate simple_form:install` to generate the Simple Form configuration.
