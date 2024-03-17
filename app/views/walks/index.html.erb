@@ -1,7 +1,7 @@
 <%= render "partials/banner" %>
 
 <div class="container">
-  <div class="table table__container">
+  <div class="walk-table walk-table__container">
     <div class="row">
       <div class="d-flex flex-column align-items-center my-3">
         <h1 class="text-center">Walking Group Schedule</h1>
@@ -10,47 +10,47 @@
     </div>
 
     <div class="row">
-      <div class="table__cell col-3 col-md-2">
-        <p class="table__header">Date</p>
+      <div class="walk-table__cell col-3 col-md-2">
+        <p class="walk-table__header">Date</p>
       </div>
-      <div class="table__cell d-none d-md-block col-2">
-        <p class="table__header">Location</p>
+      <div class="walk-table__cell d-none d-md-block col-2">
+        <p class="walk-table__header">Location</p>
       </div>
-      <div class="table__cell col-4 col-md-2">
-        <p class="table__header">Postcode</p>
+      <div class="walk-table__cell col-4 col-md-2">
+        <p class="walk-table__header">Postcode</p>
       </div>
-      <div class="table__cell d-none d-md-block col-2">
-        <p class="table__header">Leader</p>
+      <div class="walk-table__cell d-none d-md-block col-2">
+        <p class="walk-table__header">Leader</p>
       </div>
-      <div class="table__cell col-3 col-md-2">
-        <p class="table__header">Contact</p>
+      <div class="walk-table__cell col-3 col-md-2">
+        <p class="walk-table__header">Contact</p>
       </div>
-      <div class="table__cell col-2 col-md-1">
-        <p class="table__header">View map</p>
+      <div class="walk-table__cell col-2 col-md-1">
+        <p class="walk-table__header">View map</p>
       </div>
-      <div class="table__cell d-none d-md-block col-1">
-        <p class="table__header">Edit</p>
+      <div class="walk-table__cell d-none d-md-block col-1">
+        <p class="walk-table__header">Edit</p>
       </div>
     </div>
     <% @walks.each do |walk| %>
-    <!-- <% if walk.visible == true %> -->
+    <% if walk.visible == true %>
     <div class="row">
-      <div class="table__cell col-3 col-md-2">
+      <div class="walk-table__cell col-3 col-md-2">
         <p><%= walk.day.strftime('%d %b %Y') %></p>
       </div>
-      <div class="table__cell d-none d-md-block col-2">
+      <div class="walk-table__cell d-none d-md-block col-2">
         <p><%= walk.location%></p>
       </div>
-      <div class="table__cell col-4 col-md-2">
+      <div class="walk-table__cell col-4 col-md-2">
         <p><%= walk.postcode %></p>
       </div>
-      <div class="table__cell d-none d-md-block col-2">
+      <div class="walk-table__cell d-none d-md-block col-2">
         <p><%= walk.leader %></p>
       </div>
-      <div class="table__cell col-3 col-md-2">
+      <div class="walk-table__cell col-3 col-md-2">
         <p><%= walk.contact %></p>
       </div>
-      <div class="table__cell col-2 col-md-1">
+      <div class="walk-table__cell col-2 col-md-1">
         <div class="edit-delete-list d-flex align-items-center justify-content-center">
           <div class="edit-list px-2">
             <div class="icon-btn">
@@ -61,7 +61,7 @@
           </div>
         </div>
       </div>
-      <div class="table__cell d-none d-md-block col-1">
+      <div class="walk-table__cell d-none d-md-block col-1">
         <div class="edit-delete-list d-flex align-items-center justify-content-center">
           <div class="edit-list px-2">
             <div class="icon-btn">
