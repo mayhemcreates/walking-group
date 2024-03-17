@@ -1,54 +1,108 @@
 <%= render "partials/banner" %>
 
-<div class="container ">
-  <div class="row pt-5 pb-5">
-    <div class="offset-md-2 col-12 col-md-8 table-box">
-      <div class="row">
-        <div class="d-flex flex-column align-items-center my-3">
-          <h1 class="text-center">Walking Group Schedule</h1>
-          <p class="mx-5 my-3">To add or edit a walk, click the pencil icon in the edit column next to the date you would like to edit.</p>
+<div class="container">
+  <div class="table table__container">
+    <div class="row">
+      <div class="d-flex flex-column align-items-center my-3">
+        <h1 class="text-center">Walking Group Schedule</h1>
+        <p class="mx-md-5 my-3">To add or edit a walk, click the pencil icon in the edit column next to the date you would like to edit.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="table__cell col-3 col-md-2">
+        <p class="table__header">Date</p>
+      </div>
+      <div class="table__cell d-none d-md-block col-2">
+        <p class="table__header">Location</p>
+      </div>
+      <div class="table__cell col-4 col-md-2">
+        <p class="table__header">Postcode</p>
+      </div>
+      <div class="table__cell d-none d-md-block col-2">
+        <p class="table__header">Leader</p>
+      </div>
+      <div class="table__cell col-3 col-md-2">
+        <p class="table__header">Contact</p>
+      </div>
+      <div class="table__cell col-2 col-md-1">
+        <p class="table__header">View map</p>
+      </div>
+      <div class="table__cell d-none d-md-block col-1">
+        <p class="table__header">Edit</p>
+      </div>
+    </div>
+    <% @walks.each do |walk| %>
+    <!-- <% if walk.visible == true %> -->
+    <div class="row">
+      <div class="table__cell col-3 col-md-2">
+        <p><%= walk.day.strftime('%d %b %Y') %></p>
+      </div>
+      <div class="table__cell d-none d-md-block col-2">
+        <p><%= walk.location%></p>
+      </div>
+      <div class="table__cell col-4 col-md-2">
+        <p><%= walk.postcode %></p>
+      </div>
+      <div class="table__cell d-none d-md-block col-2">
+        <p><%= walk.leader %></p>
+      </div>
+      <div class="table__cell col-3 col-md-2">
+        <p><%= walk.contact %></p>
+      </div>
+      <div class="table__cell col-2 col-md-1">
+        <div class="edit-delete-list d-flex align-items-center justify-content-center">
+          <div class="edit-list px-2">
+            <div class="icon-btn">
+              <%= link_to walk_path(walk) do %>
+              <i class="fa-solid fa-eye edit-icon"></i>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
-      <table>
-        <th>
-        Date
-        </th>
-        <th>
-        Location
-        </th>
-        <th>
-        Leader
-        </th>
-        <th>
-        Edit
-        </th>
-        <% @walks.each do |walk| %>
-          <% if walk.visible == true %>
-          <tr>
-            <td>
-              <p><%= walk.day.strftime('%d %b %Y') %></p>
-            </td>
-            <td>
-              <p><%= walk.location%></p>
-            </td>
-            <td>
-              <p><%= walk.leader  %></p>
-            </td>
-            <td>
-              <div class="edit-delete-list d-flex">
-                <div class="edit-list px-2">
-                  <div class="icon-btn">
-                    <%= link_to edit_walk_path(walk) do %>
-                      <i class="fa-solid fa-pencil edit-icon"></i>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <% end %>
-        <% end %>
-      </table>
+      <div class="table__cell d-none d-md-block col-1">
+        <div class="edit-delete-list d-flex align-items-center justify-content-center">
+          <div class="edit-list px-2">
+            <div class="icon-btn">
+              <%= link_to edit_walk_path(walk) do %>
+              <i class="fa-solid fa-pencil edit-icon"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <!--
+    <table>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Leader</th>
+      <th>Edit</th>
+      <tr>
+        <td>
+          <p><%= walk.day.strftime('%d %b %Y') %></p>
+        </td>
+        <td>
+          <p><%= walk.location%></p>
+          <div style="width: 100%; height: 600px" data-controller="map" data-map-marker-value="<%= @marker.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        </td>
+        <td>
+          <p><%= walk.leader %></p>
+        </td>
+        <td>
+          <div class="edit-delete-list d-flex">
+            <div class="edit-list px-2">
+              <div class="icon-btn">
+                <%= link_to edit_walk_path(walk) do %>
+                <i class="fa-solid fa-pencil edit-icon"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <% end %> <% end %>
+    </table> -->
   </div>
 </div>

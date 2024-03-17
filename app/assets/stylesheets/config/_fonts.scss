@@ -1,5 +1,5 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Poppins:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope&family=Poppins:wght@600&display=swap");
 // Define fonts for body and headers
 $body-font: "Manrope", "Helvetica", "sans-serif";
 $headers-font: "Poppins", "Helvetica", "sans-serif";
@@ -17,10 +17,14 @@ $headers-font: "Poppins", "Helvetica", "sans-serif";
 * {
   font-family: $body-font;
   font-size: 16px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 14px;
+  }
 }
 
-
-h1, h2 {
+h1,
+h2 {
   font-family: $headers-font;
   font-size: 32px;
 }

@@ -8,6 +8,7 @@ class WalksController < ApplicationController
         walk.visible = false
         walk.save
       end
+      @marker = { lat: walk.latitude, lng: walk.longitude }
     end
     visible_walks = Walk.where(visible: true)
     if visible_walks.count <=12
@@ -17,6 +18,7 @@ class WalksController < ApplicationController
 
   def show
     @walk = Walk.find(params[:id])
+    @marker = { lat: @walk.latitude, lng: @walk.longitude }
   end
 
   def new
@@ -46,7 +48,7 @@ class WalksController < ApplicationController
   private
 
   def walk_params
-    params.require(:walk).permit(:location, :leader)
+    params.require(:walk).permit(:location, :leader, :notes, :postcode)
   end
 
   def calculate_next_thursday(date)

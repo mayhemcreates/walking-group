@@ -1,0 +1,35 @@
+<%= render "partials/banner" %>
+
+<div class="container">
+  <div class="detail detail__container">
+    <div class="row">
+      <div class="d-flex flex-column align-items-center my-3">
+        <h1 class="text-center">Walking Group Schedule</h1>
+        <p class="mx-5 my-3"><%= @walk.location %></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <p>Date:</p>
+        <p class="mb-3 detail__data"><%= @walk.day.strftime('%d %b %Y') %></p>
+        <p>Location:</p>
+        <p class="mb-3 detail__data"><%= @walk.location %></p>
+        <p>Postcode:</p>
+        <p class="mb-3 detail__data"><%= @walk.postcode %></p>
+        <p>Leader:</p>
+        <p class="mb-3 detail__data"><%= @walk.leader %></p>
+        <p>Contact:</p>
+        <p class="mb-3 detail__data"><%= @walk.contact %></p>
+        <p>Notes:</p>
+        <p class="detail__data"><%= @walk.notes %></p>
+        <div class="d-flex align-items-center mt-5">
+          <i class="fa-solid fa-arrow-left"></i>
+          <%= link_to "back to walks list", walks_path, class: "ms-3" %>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="detail__map" style="width: 100%; height: 600px" data-controller="map" data-map-marker-value="<%= @marker.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      </div>
+    </div>
+  </div>
+</div>
