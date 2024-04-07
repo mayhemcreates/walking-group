@@ -19,3 +19,16 @@ button {
     border: 2px $dark-grey solid;
   }
 }
+
+.edit-button {
+  padding: 10px 20px;
+  background-color: $dark-green;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+
+  i {
+    color: white;
+    margin-top: 2px;
+  }
+}

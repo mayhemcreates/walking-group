@@ -9,7 +9,16 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-6">
+          <div class="offset-6 col-6 offset-md-9 col-md-3">
+            <div class="icon-btn d-flex align-items-center justify-content-end">
+              <%= link_to edit_walk_path(@walk), class: "edit-button d-flex" do %>
+              <p>Edit this walk</p>
+              <i class="fa-solid fa-pencil edit-icon ms-2"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <div class="col-12 col-md-6">
         <p>Date:</p>
         <p class="mb-3 detail__data"><%= @walk.day.strftime('%d %b %Y') %></p>
         <p>Location:</p>
@@ -27,7 +36,7 @@
           <%= link_to "back to walks list", walks_path, class: "ms-3" %>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <div class="detail__map" style="width: 100%; height: 600px" data-controller="map" data-map-marker-value="<%= @marker.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       </div>
     </div>
